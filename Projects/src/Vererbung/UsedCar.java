@@ -8,6 +8,7 @@ public class UsedCar extends Car {
 		super(model, price);
 		this.mileage = mileage;
 	}
+
 	
 	public double getPrice() {
 		int factor = this.mileage / 10000;

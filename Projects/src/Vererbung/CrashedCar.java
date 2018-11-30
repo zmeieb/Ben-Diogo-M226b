@@ -16,7 +16,7 @@ public class CrashedCar extends Car {
 	}
 
 	public double getPrice() {
-		double pr = this.getCarPrice();
+		double pr = super.getCarPrice();
 		switch (this.damageLevel) {
 		case DMG_LVL_LOW: //case 0:
 			pr *= 0.9; // pr = pr * 0.9
