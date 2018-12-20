@@ -140,11 +140,17 @@ public class Main {
                 return null;
             }
         };
+
+        //Buses Creation
+        SingleFloorBus singleFloorBusLarge = new SingleFloorBus(100, "1st Class");
+        SingleFloorBus singleFloorBusSmall = new SingleFloorBus(50, "Basic");
+        DoubleDecker doubleDeckerLarge = new DoubleDecker(150, "1st Class");
+        DoubleDecker doubleDeckerSmall = new DoubleDecker(75, "Basic");
         //Platform Creation
-        Platform platform1 = new Platform(1, 6, "international", "large", true);
-        Platform platform2 = new Platform(2, 6, "national", "large", false);
-        Platform platform3 = new Platform(3, 3, "international", "small", false);
-        Platform platform4 = new Platform(4, 3, "national", "small", true);
+        Platform platform1 = new Platform(1, 6, doubleDeckerLarge.getSERVICE(), "large", true);
+        Platform platform2 = new Platform(2, 6, singleFloorBusLarge.getSERVICE(), "large", false);
+        Platform platform3 = new Platform(3, 3, doubleDeckerSmall.getSERVICE(), "small", false);
+        Platform platform4 = new Platform(4, 3, singleFloorBusSmall.getSERVICE(), "small", true);
         //adding Platforms
         platforms.add(platform1);
         platforms.add(platform2);
@@ -152,6 +158,8 @@ public class Main {
         platforms.add(platform4);
         //Bus Terminal Creation
         BusTerminal busTerminal = new BusTerminal("Bus Terminal Zürich", platforms);
+
+        Travel travel = new Travel();
 
 
     }

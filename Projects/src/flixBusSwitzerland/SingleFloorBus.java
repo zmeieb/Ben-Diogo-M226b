@@ -11,4 +11,8 @@ public class SingleFloorBus extends Bus{
     public SingleFloorBus(int passengerCapacity, String comfort) {
         super(passengerCapacity, comfort);
     }
+
+    public static String getSERVICE() {
+        return SingleFloorBus.SERVICE;
+    }
 }

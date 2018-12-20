@@ -11,4 +11,8 @@ public class DoubleDecker extends Bus {
     public DoubleDecker(int passengerCapacity, String comfort) {
         super(passengerCapacity, comfort);
     }
+
+    public static String getSERVICE() {
+        return DoubleDecker.SERVICE;
+    }
 }
