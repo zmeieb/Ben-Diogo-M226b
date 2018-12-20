@@ -234,6 +234,7 @@ public class Main {
             System.out.println("\nTravel to " + travel.getDestination()+ ": " + travel.getDepartureTime() + " and arrives at " + travel.getArrivalTime() +" \n" +
                     "The Travel is " + travel.getRegion() + "\nThe Bus has the " + travel.getBus().getComfort() + " comfort\n" +
                     "The Bus has a capacity of " + travel.getBus().getPassengerCapacity());
+
         }
     }
 
