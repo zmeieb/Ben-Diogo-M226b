@@ -10,4 +10,11 @@ public class Travel {
     private String departureTime;
     private String arrivalTime;
     private String busService;
+
+    public Travel(String destination, String departureTime, String arrivalTime, String busService) {
+        this.destination = destination;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.busService = busService;
+    }
 }

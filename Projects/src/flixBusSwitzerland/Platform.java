@@ -11,4 +11,12 @@ public class Platform {
     private String busService;
     private String busType;
     private boolean occupied;
+
+    public Platform(int platformNumber, int platformSize, String busService, String busType, boolean occupied) {
+        this.platformNumber = platformNumber;
+        this.platformSize = platformSize;
+        this.busService = busService;
+        this.busType = busType;
+        this.occupied = occupied;
+    }
 }

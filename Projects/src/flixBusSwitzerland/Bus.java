@@ -8,4 +8,9 @@ package flixBusSwitzerland;
 public class Bus {
     private int passengerCapacity;
     private String comfort;
+
+    public Bus(int passengerCapacity, String comfort) {
+        this.passengerCapacity = passengerCapacity;
+        this.comfort = comfort;
+    }
 }

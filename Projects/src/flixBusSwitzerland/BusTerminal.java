@@ -11,4 +11,9 @@ public class BusTerminal {
     private String terminalName;
     private List<Platform> platforms;
 
+
+    public BusTerminal(String terminalName, List<Platform> platforms) {
+        this.terminalName = terminalName;
+        this.platforms = platforms;
+    }
 }
