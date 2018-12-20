@@ -1,5 +1,5 @@
 //Project: Flix Bus Switzerland
-//Titel: Platform.java
+//Titel: Main.java
 //Created: 14.12.2018
 //Authors: Diogo Caraça & Ben Meierpackage flixBusSwitzerland;
 
