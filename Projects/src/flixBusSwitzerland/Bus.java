@@ -13,4 +13,12 @@ public class Bus {
         this.passengerCapacity = passengerCapacity;
         this.comfort = comfort;
     }
+
+    public int getPassengerCapacity() {
+        return passengerCapacity;
+    }
+
+    public String getComfort() {
+        return comfort;
+    }
 }

@@ -9,33 +9,34 @@ package flixBusSwitzerland;
 import java.util.*;
 
 public class Main {
-
+    private static List<Travel> travelList = createTravels();
+    static boolean stop = true;
     public static void main(String[] args) {
         Main.creations();
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose your action:");
-        System.out.println("=========================");
-        System.out.println("[1] View Departures");
-        System.out.println("[2] Generate new Trip");
-        System.out.println("[x] Beenden");
-        String response = scanner.nextLine();
-        responseHandling(response);
-
+        while(stop) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\n\n\nChoose your action:");
+            System.out.println("=========================");
+            System.out.println("[1] View Departures");
+            System.out.println("[2] Generate new Trip");
+            System.out.println("[x] Beenden");
+            String response = scanner.nextLine();
+            responseHandling(response);
+        }
 
     }
 
     private static void responseHandling(String response){
         switch (response){
             case "1":
-
+                viewDepatures();
                 break;
             case "2":
-
+                generateNewTrip();
                 break;
-
             case "x":
-                System.exit(0);
+                System.out.println("See you next time!");
+                stop = false;
                 break;
 
             default:
@@ -184,7 +185,57 @@ public class Main {
         Travel travel3 = new Travel("Milan", "14:15", "18:45", "international", doubleDeckerSmall);
         Travel travel4 = new Travel("Genf", "12:00", "15:00", "national", singleFloorBusLarge);
 
+    }
+    private static List<Travel> createTravels(){
+        List<Travel> travelList = new ArrayList<>();
+
+        SingleFloorBus singleFloorBusLarge = new SingleFloorBus(100, "1st Class");
+        SingleFloorBus singleFloorBusSmall = new SingleFloorBus(50, "Basic");
+        DoubleDecker doubleDeckerLarge = new DoubleDecker(150, "1st Class");
+        DoubleDecker doubleDeckerSmall = new DoubleDecker(75, "Basic");
+
+        Travel travel1 = new Travel("Basel", "5:30", "7:00", "national", singleFloorBusSmall);
+        Travel travel2 = new Travel("Crikvenica", "19:30", "7:30", "international", doubleDeckerLarge);
+        Travel travel3 = new Travel("Milan", "14:15", "18:45", "international", doubleDeckerSmall);
+        Travel travel4 = new Travel("Genf", "12:00", "15:00", "national", singleFloorBusLarge);
+        travelList.add(travel1);
+        travelList.add(travel2);
+        travelList.add(travel3);
+        travelList.add(travel4);
+        return travelList;
+    }
+
+
+    private static void generateNewTrip(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Where would you like to go? ");
+        String destination = scanner.nextLine();
+        System.out.println("When should be the departure time? ");
+        String departureTime = scanner.nextLine();
+        System.out.println("When should be the arrival time? ");
+        String arrivalTime = scanner.nextLine();
+        System.out.println("What kind of region is the Travel? ");
+        String region = scanner.nextLine();
+        System.out.println("What kind of Comfort would you like to have in your bus? ");
+        String comfort = scanner.nextLine();
+        System.out.println("How much capacity has the bus? ");
+        String capacityString = scanner.nextLine();
+        int capacity = Integer.valueOf(capacityString);
+        Bus bus = new Bus(capacity, comfort);
+        Travel travel = new Travel(destination, departureTime, arrivalTime, region, bus);
+        travelList.add(travel);
+        System.out.println("Created new Trip succesfully");
 
     }
+
+    private static void viewDepatures(){
+        System.out.println("================ Departures today ================");
+        for(Travel travel : travelList){
+            System.out.println("\nTravel to " + travel.getDestination()+ ": " + travel.getDepartureTime() + " and arrives at " + travel.getArrivalTime() +" \n" +
+                    "The Travel is " + travel.getRegion() + "\nThe Bus has the " + travel.getBus().getComfort() + " comfort\n" +
+                    "The Bus has a capacity of " + travel.getBus().getPassengerCapacity());
+        }
+    }
+
 
 }

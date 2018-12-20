@@ -19,4 +19,28 @@ public class Travel {
         this.region = region;
         this.bus = bus;
     }
+
+
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public String getDepartureTime() {
+        return departureTime;
+    }
+
+    public String getArrivalTime() {
+        return arrivalTime;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+
 }
