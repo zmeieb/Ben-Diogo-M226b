@@ -9,12 +9,14 @@ public class Travel {
     private String destination;
     private String departureTime;
     private String arrivalTime;
-    private String busService;
+    private String region;
+    private Bus bus;
 
-    public Travel(String destination, String departureTime, String arrivalTime, String busService) {
+    public Travel(String destination, String departureTime, String arrivalTime, String region, Bus bus) {
         this.destination = destination;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
-        this.busService = busService;
+        this.region = region;
+        this.bus = bus;
     }
 }

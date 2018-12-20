@@ -159,7 +159,10 @@ public class Main {
         //Bus Terminal Creation
         BusTerminal busTerminal = new BusTerminal("Bus Terminal Zürich", platforms);
 
-        Travel travel = new Travel();
+        Travel travel1 = new Travel("Basel", "5:30", "7:00", "national", singleFloorBusSmall);
+        Travel travel2 = new Travel("Crikvenica", "19:30", "7:30", "international", doubleDeckerLarge);
+        Travel travel3 = new Travel("Milan", "14:15", "18:45", "international", doubleDeckerSmall);
+        Travel travel4 = new Travel("Genf", "12:00", "15:00", "national", singleFloorBusLarge);
 
 
     }
