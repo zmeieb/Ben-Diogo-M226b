@@ -5,22 +5,42 @@
 
 package flixBusSwitzerland;
 
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
+
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         Main.creations();
 
-
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose your action:");
         System.out.println("=========================");
         System.out.println("[1] View Departures");
         System.out.println("[2] Generate new Trip");
         System.out.println("[x] Beenden");
+        String response = scanner.nextLine();
+        responseHandling(response);
+
+
+    }
+
+    private static void responseHandling(String response){
+        switch (response){
+            case "1":
+
+                break;
+            case "2":
+
+                break;
+
+            case "x":
+                System.exit(0);
+                break;
+
+            default:
+                throw new RuntimeException("User did not write useful answer!");
+        }
     }
 
     public static void creations(){
@@ -166,4 +186,5 @@ public class Main {
 
 
     }
+
 }
