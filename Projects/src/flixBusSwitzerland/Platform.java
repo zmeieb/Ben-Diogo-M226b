@@ -19,4 +19,24 @@ public class Platform {
         this.busType = busType;
         this.occupied = occupied;
     }
+
+    public int getPlatformNumber() {
+        return platformNumber;
+    }
+
+    public int getPlatformSize() {
+        return platformSize;
+    }
+
+    public String getBusService() {
+        return busService;
+    }
+
+    public String getBusType() {
+        return busType;
+    }
+
+    public boolean isOccupied() {
+        return occupied;
+    }
 }
