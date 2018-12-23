@@ -5,14 +5,13 @@
 
 package flixBusSwitzerland;
 
-public class SingleFloorBus extends Bus{
-    private static final String SERVICE = "national";
+public class SingleFloorBus extends Bus {
 
-    public SingleFloorBus(int passengerCapacity, String comfort) {
-        super(passengerCapacity, comfort);
-    }
-
-    public static String getSERVICE() {
-        return SingleFloorBus.SERVICE;
+    /**
+     * @param passengerCapacity int
+     * @param comfort           String
+     */
+    SingleFloorBus(int passengerCapacity, String comfort) {
+        super(passengerCapacity, comfort, "national", "small");
     }
 }

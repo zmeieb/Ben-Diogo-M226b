@@ -6,13 +6,12 @@
 package flixBusSwitzerland;
 
 public class DoubleDecker extends Bus {
-    private static final String SERVICE = "international";
 
-    public DoubleDecker(int passengerCapacity, String comfort) {
-        super(passengerCapacity, comfort);
-    }
-
-    public static String getSERVICE() {
-        return DoubleDecker.SERVICE;
+    /**
+     * @param passengerCapacity int
+     * @param comfort           String
+     */
+    DoubleDecker(int passengerCapacity, String comfort) {
+        super(passengerCapacity, comfort, "international", "large");
     }
 }
