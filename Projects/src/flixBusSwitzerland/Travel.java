@@ -5,34 +5,27 @@
 
 package flixBusSwitzerland;
 
-import java.util.List;
-
 public class Travel {
     private String destination;
     private String departureTime;
     private String arrivalTime;
-    //From Bus
-    private String service;
-    //From Platform
-    private int platformNumber;
-    //From Bus
-    private String comfort;
+    private Platform platform;
 
     /**
-     * @param destination    String
-     * @param departureTime  String
-     * @param arrivalTime    String
-     * @param service        String
-     * @param platformNumber int
-     * @param comfort        String
+     *
+     * @param destination String
+     * @param departureTime String
+     * @param arrivalTime String
+     * @param platform Platform
+     * @param bus Bus
      */
-    Travel(String destination, String departureTime, String arrivalTime, String service, int platformNumber, String comfort) {
+    Travel(String destination, String departureTime, String arrivalTime, Platform platform, Bus bus) {
         this.destination = destination;
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
-        this.service = service;
-        this.platformNumber = platformNumber;
-        this.comfort = comfort;
+        this.platform = platform;
+        this.platform.setBus(bus);
+        this.platform.setOccupied(true);
     }
 
     /**
@@ -57,23 +50,9 @@ public class Travel {
     }
 
     /**
-     * @return String
+     * @return Platform
      */
-    public String getService() {
-        return service;
-    }
-
-    /**
-     * @return int
-     */
-    public int getPlatformNumber() {
-        return platformNumber;
-    }
-
-    /**
-     * @return String
-     */
-    public String getComfort() {
-        return comfort;
+    public Platform getPlatform() {
+        return platform;
     }
 }

@@ -13,24 +13,24 @@ public class Main {
     static boolean stop = true;
 
     public static void main(String[] args) {
-        List<Bus> buses = createBuses();
-        List<Platform> platforms = createPlatforms(buses);
-        BusTerminal terminal = createBusTerminal("Bus Terminal Zürich", platforms);
-        terminal.setTravels(createTravels(platforms));
+        BusTerminal terminal = createBusTerminal("Bus Terminal Zürich");
+        terminal.setPlatforms(createPlatforms());
+        terminal.setBuses(createBuses());
+        terminal.setTravels(createTravels(terminal));
         Scanner scanner = new Scanner(System.in);
 
         while (stop) {
             System.out.println("\nChoose your action:");
-            System.out.println("==========================================");
-            System.out.println("[1] View Departures");
+            System.out.println("============= " + terminal.getTerminalName() + " ============");
+            System.out.println("[1] View Travels");
             System.out.println("[2] Generate new Trip");
-            System.out.println("[x] Beenden");
-            System.out.println("==========================================");
+            System.out.println("[x] End Programm");
+            System.out.println("==============================================");
             String response = scanner.nextLine();
 
             switch (response) {
                 case "1":
-                    terminal.viewDepatures(terminal.getPlatforms());
+                    terminal.viewTravels();
                     break;
                 case "2":
                     //generateNewTrip();
@@ -49,18 +49,18 @@ public class Main {
     }
 
 
-    private static BusTerminal createBusTerminal(String name, List<Platform> platforms) {
-        BusTerminal busTerminal = new BusTerminal(name, platforms);
+    private static BusTerminal createBusTerminal(String name) {
+        BusTerminal busTerminal = new BusTerminal(name);
         return busTerminal;
     }
 
-    private static List<Platform> createPlatforms(List<Bus> buses) {
+    private static List<Platform> createPlatforms() {
         List<Platform> platforms = new ArrayList<>();
         //Platform Creation
-        Platform platform1 = new Platform(1, "small", buses.get(0));
-        Platform platform2 = new Platform(2, "small", buses.get(1));
-        Platform platform3 = new Platform(3, "large", buses.get(2));
-        Platform platform4 = new Platform(4, "small", buses.get(3));
+        Platform platform1 = new Platform(1, "small");
+        Platform platform2 = new Platform(2, "small");
+        Platform platform3 = new Platform(3, "large");
+        Platform platform4 = new Platform(4, "small");
         //adding Platforms
         platforms.add(platform1);
         platforms.add(platform2);
@@ -85,13 +85,13 @@ public class Main {
         return busList;
     }
 
-    private static List<Travel> createTravels(List<Platform> platforms) {
+    private static List<Travel> createTravels(BusTerminal terminal) {
         List<Travel> travelList = new ArrayList<>();
 
-        Travel travel1 = new Travel("Basel", "5:30", "7:00", platforms.get(1).getBusService(), platforms.get(1).getPlatformNumber(), platforms.get(1).getBus().getComfort());
-        Travel travel2 = new Travel("Crikvenica", "19:30", "7:30", platforms.get(2).getBusService(), platforms.get(2).getPlatformNumber(), platforms.get(2).getBus().getComfort());
-        Travel travel3 = new Travel("Milan", "14:15", "18:45", platforms.get(3).getBusService(), platforms.get(3).getPlatformNumber(), platforms.get(3).getBus().getComfort());
-        Travel travel4 = new Travel("Genf", "12:00", "15:00", platforms.get(0).getBusService(), platforms.get(0).getPlatformNumber(), platforms.get(0).getBus().getComfort());
+        Travel travel1 = new Travel("Genf", "12:00", "15:00", terminal.getPlatforms().get(0), terminal.getBuses().get(0));
+        Travel travel2 = new Travel("Basel", "5:30", "7:00", terminal.getPlatforms().get(1), terminal.getBuses().get(1));
+        Travel travel3 = new Travel("Crikvenica", "19:30", "7:30", terminal.getPlatforms().get(2), terminal.getBuses().get(2));
+        Travel travel4 = new Travel("Milan", "14:15", "18:45", terminal.getPlatforms().get(3), terminal.getBuses().get(3));
         travelList.add(travel1);
         travelList.add(travel2);
         travelList.add(travel3);

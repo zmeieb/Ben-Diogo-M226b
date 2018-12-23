@@ -8,8 +8,6 @@ package flixBusSwitzerland;
 public class Platform {
     private int platformNumber;
     private String platformSize;
-    private String busService;
-    private String busType;
     private boolean occupied;
     private Bus bus;
 
@@ -22,20 +20,7 @@ public class Platform {
         this.platformNumber = platformNumber;
         this.platformSize = platformSize;
         this.occupied = false;
-    }
-
-    /**
-     * @param platformNumber int
-     * @param platformSize   String
-     * @param bus   Bus
-     */
-    Platform(int platformNumber, String platformSize, Bus bus) {
-        this.platformNumber = platformNumber;
-        this.platformSize = platformSize;
-        this.busService = bus.getService();
-        this.busType = bus.getSize();
-        this.bus = bus;
-        this.occupied = true;
+        this.bus = null;
     }
 
     /**
@@ -53,20 +38,6 @@ public class Platform {
     }
 
     /**
-     * @return String
-     */
-    public String getBusService() {
-        return busService;
-    }
-
-    /**
-     * @return String
-     */
-    public String getBusType() {
-        return busType;
-    }
-
-    /**
      * @return boolean
      */
     public boolean isOccupied() {
@@ -78,20 +49,6 @@ public class Platform {
      */
     public Bus getBus() {
         return bus;
-    }
-
-    /**
-     * @param busService String
-     */
-    public void setBusService(String busService) {
-        this.busService = busService;
-    }
-
-    /**
-     * @param busType String
-     */
-    public void setBusType(String busType) {
-        this.busType = busType;
     }
 
     /**
