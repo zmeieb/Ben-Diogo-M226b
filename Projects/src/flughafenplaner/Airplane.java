@@ -2,6 +2,7 @@ package flughafenplaner;
 
 public class Airplane {
 
+
     private String flugzeugName;
     private String modell;
     private String hersteller;
@@ -37,5 +38,13 @@ public class Airplane {
 
     public void setHersteller(String hersteller) {
         this.hersteller = hersteller;
+    }
+
+    public String getAirline() {
+        return airline;
+    }
+
+    public void setAirline(String airline) {
+        this.airline = airline;
     }
 }
