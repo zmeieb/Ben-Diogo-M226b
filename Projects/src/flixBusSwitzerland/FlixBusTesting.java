@@ -41,7 +41,6 @@ public class FlixBusTesting {
             Assert.assertEquals(150, bus.getPassengerCapacity());
             Assert.assertEquals("Economy class", bus.getComfort());
 
-
         }
 
         @Test
