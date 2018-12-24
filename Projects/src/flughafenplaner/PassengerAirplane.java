@@ -22,7 +22,7 @@ public class PassengerAirplane extends Airplane {
     }
 
     public PassengerAirplane(String flugzeugname, String modell, String flugzeuggesellschaft, int passagierPlatz) {
-        super(flugzeugname, modell, "PassengerAirplane");
+        super(flugzeugname, modell, "PassengerAirplane", "Edelweiss");
         this.fluggesellschaft = flugzeuggesellschaft;
         this.passagierPlatz = passagierPlatz;
     }
