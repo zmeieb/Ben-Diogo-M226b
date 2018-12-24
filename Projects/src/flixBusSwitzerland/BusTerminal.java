@@ -5,7 +5,9 @@
 
 package flixBusSwitzerland;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class BusTerminal {
     private String terminalName;
@@ -21,6 +23,7 @@ public class BusTerminal {
     }
 
     //Getters
+
     /**
      * @return String
      */
@@ -50,6 +53,7 @@ public class BusTerminal {
     }
 
     //Setters
+
     /**
      * @param travels List
      */
@@ -73,17 +77,83 @@ public class BusTerminal {
 
     //View Travels
     public void viewTravels() {
-        System.out.println("============== Departures today ==============");
+        System.out.println("============== Travels today ==============");
         for (Travel travel : getTravels()) {
-            System.out.println("--Travel to " + travel.getDestination() + "--\n" +
-                    "Depature at " + travel.getDepartureTime() + "\n" +
-                    "Arrival at " + travel.getArrivalTime() + "\n" +
-                    "The Travel is " + travel.getPlatform().getBus().getService() + "\n" +
-                    "The Bus has the " + travel.getPlatform().getBus().getComfort() + " comfort\n" +
-                    "The Passenger Capacity is " + travel.getPlatform().getBus().getPassengerCapacity() + "\n" +
-                    "The Platform Number is " + travel.getPlatform().getPlatformNumber() + "\n" +
-                    "------------------------------------"
-            );
+            System.out.println(travel.toString());
+        }
+    }
+
+    public void generateNewTrip() {
+        List<Platform> openPlatforms = new ArrayList<>();
+        Platform travelPlatform = null;
+        int platformNr;
+        List<Bus> openBuses = new ArrayList<>();
+        Bus travelBus = null;
+        int busNr;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Destination:");
+        String destination = scanner.nextLine();
+        System.out.print("Departure:");
+        String departureTime = scanner.nextLine();
+        System.out.print("Arrival: ");
+        String arrivalTime = scanner.nextLine();
+
+        System.out.println("Choose a platform");
+        System.out.println("------------------------------------");
+        for (Platform platform : this.platforms) {
+            if (!platform.isOccupied()) {
+                openPlatforms.add(platform);
+                System.out.println(platform.toString());
+            }
+        }
+        do {
+            System.out.print("Nr: ");
+            if (scanner.hasNextInt()){
+                platformNr = scanner.nextInt();
+                for (Platform openPlatform : openPlatforms) {
+                    if (platformNr == openPlatform.getPlatformNumber()) {
+                        travelPlatform = openPlatform;
+                    }
+                }
+            } else {
+                scanner.nextLine();
+                System.out.println("Please enter a number");
+            }
+        } while (travelPlatform == null);
+
+        System.out.println("Choose a bus");
+        System.out.println("------------------------------------");
+        for (Bus bus : this.buses) {
+            if (travelPlatform.getPlatformSize().equals("small") && bus.getSize().equals("small")) {
+                openBuses.add(bus);
+                System.out.println(bus.toString());
+            } else if (travelPlatform.getPlatformSize().equals("large") && bus.getSize().equals("small")) {
+                openBuses.add(bus);
+                System.out.println(bus.toString());
+            } else if (travelPlatform.getPlatformSize().equals("large") && bus.getSize().equals("large")) {
+                openBuses.add(bus);
+                System.out.println(bus.toString());
+            }
+        }
+        do {
+            System.out.print("Nr: ");
+            if (scanner.hasNextInt()) {
+                busNr = scanner.nextInt();
+                for (Bus openBus : openBuses) {
+                    if (busNr == openBus.getBusNumber()) {
+                        travelBus = openBus;
+                    }
+                }
+            } else {
+                scanner.nextLine();
+                System.out.println("Please enter a number");
+            }
+        } while (travelBus == null);
+
+        Travel travel = new Travel(destination, departureTime, arrivalTime, travelPlatform, travelBus);
+        if (this.travels.add(travel)) {
+            System.out.println("Created new Trip succesfully");
         }
     }
 }

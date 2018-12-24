@@ -11,7 +11,7 @@ public class SingleFloorBus extends Bus {
      * @param passengerCapacity int
      * @param comfort           String
      */
-    SingleFloorBus(int passengerCapacity, String comfort) {
-        super(passengerCapacity, comfort, "national", "small");
+    SingleFloorBus(int busNumber, int passengerCapacity, String comfort) {
+        super(busNumber, passengerCapacity, comfort, "national", "small");
     }
 }

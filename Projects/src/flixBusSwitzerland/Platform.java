@@ -64,4 +64,12 @@ public class Platform {
     public void setBus(Bus bus) {
         this.bus = bus;
     }
+
+    @Override
+    public String toString() {
+        return "--Platform " + this.getPlatformNumber() + "--\n" +
+                "Size: " + this.getPlatformSize() + "\n" +
+                "------------------"
+                ;
+    }
 }

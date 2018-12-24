@@ -9,7 +9,6 @@ package flixBusSwitzerland;
 import java.util.*;
 
 public class Main {
-    //private static List<Travel> travelList = createTravels(createBuses());
     static boolean stop = true;
 
     public static void main(String[] args) {
@@ -33,7 +32,7 @@ public class Main {
                     terminal.viewTravels();
                     break;
                 case "2":
-                    //generateNewTrip();
+                    terminal.generateNewTrip();
                     break;
                 case "x":
                     System.out.println("See you next time!");
@@ -41,7 +40,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("User did not choosed a valid option.");
+                    System.out.println("User did not choose a valid option.");
                     System.out.println("Please try it again.");
                     break;
             }
@@ -61,11 +60,17 @@ public class Main {
         Platform platform2 = new Platform(2, "small");
         Platform platform3 = new Platform(3, "large");
         Platform platform4 = new Platform(4, "small");
+        Platform platform5 = new Platform(5, "large");
+        Platform platform6 = new Platform(6, "small");
+        Platform platform7 = new Platform(7, "small");
         //adding Platforms
         platforms.add(platform1);
         platforms.add(platform2);
         platforms.add(platform3);
         platforms.add(platform4);
+        platforms.add(platform5);
+        platforms.add(platform6);
+        platforms.add(platform7);
 
         return platforms;
     }
@@ -73,10 +78,10 @@ public class Main {
     private static List<Bus> createBuses() {
         List<Bus> busList = new ArrayList<>();
 
-        SingleFloorBus singleFloorBus1 = new SingleFloorBus(100, "1st Class");
-        SingleFloorBus singleFloorBus2 = new SingleFloorBus(50, "Basic");
-        DoubleDecker doubleDecker1 = new DoubleDecker(150, "1st Class");
-        DoubleDecker doubleDecker2 = new DoubleDecker(75, "Basic");
+        SingleFloorBus singleFloorBus1 = new SingleFloorBus(1, 100, "1st Class");
+        SingleFloorBus singleFloorBus2 = new SingleFloorBus(2, 50, "Basic");
+        DoubleDecker doubleDecker1 = new DoubleDecker(3, 150, "1st Class");
+        DoubleDecker doubleDecker2 = new DoubleDecker(4, 75, "Basic");
         busList.add(singleFloorBus1);
         busList.add(singleFloorBus2);
         busList.add(doubleDecker1);
@@ -99,39 +104,4 @@ public class Main {
 
         return travelList;
     }
-
-    /*
-    private static void generateNewTrip() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Where would you like to go? ");
-        String destination = scanner.nextLine();
-        System.out.println("When should be the departure time? ");
-        String departureTime = scanner.nextLine();
-        System.out.println("When should be the arrival time? ");
-        String arrivalTime = scanner.nextLine();
-        System.out.println("What kind of region is the Travel? [national/international]");
-        String region = scanner.nextLine();
-        System.out.println("What kind of Comfort would you like to have in your bus? [1st Class/basic]");
-        String comfort = scanner.nextLine();
-        System.out.println("What capacity should the bus have?");
-        int capacity = scanner.nextInt();
-
-
-        if (region.equals("national")) {
-            Bus bus = new SingleFloorBus(capacity, comfort);
-            Travel travel = new Travel(destination, departureTime, arrivalTime, region, bus);
-            if (travelList.add(travel)) {
-                System.out.println("Created new Trip succesfully");
-            }
-        } else if (region.equals("international")) {
-            Bus bus = new DoubleDecker(capacity, comfort);
-            Travel travel = new Travel(destination, departureTime, arrivalTime, region, bus);
-            if (travelList.add(travel)) {
-                System.out.println("Created new Trip succesfully");
-            }
-        }
-
-    }
-    */
-
 }

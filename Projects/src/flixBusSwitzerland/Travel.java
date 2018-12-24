@@ -12,12 +12,11 @@ public class Travel {
     private Platform platform;
 
     /**
-     *
-     * @param destination String
+     * @param destination   String
      * @param departureTime String
-     * @param arrivalTime String
-     * @param platform Platform
-     * @param bus Bus
+     * @param arrivalTime   String
+     * @param platform      Platform
+     * @param bus           Bus
      */
     Travel(String destination, String departureTime, String arrivalTime, Platform platform, Bus bus) {
         this.destination = destination;
@@ -54,5 +53,18 @@ public class Travel {
      */
     public Platform getPlatform() {
         return platform;
+    }
+
+    @Override
+    public String toString() {
+        return "--Travel to " + this.getDestination() + "--\n" +
+                "Depature at " + this.getDepartureTime() + "\n" +
+                "Arrival at " + this.getArrivalTime() + "\n" +
+                "The Travel is " + this.getPlatform().getBus().getService() + "\n" +
+                "The Bus has the " + this.getPlatform().getBus().getComfort() + " comfort\n" +
+                "The Passenger Capacity is " + this.getPlatform().getBus().getPassengerCapacity() + "\n" +
+                "The Platform Number is " + this.getPlatform().getPlatformNumber() + "\n" +
+                "------------------------------------"
+                ;
     }
 }

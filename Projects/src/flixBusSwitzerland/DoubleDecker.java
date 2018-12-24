@@ -11,7 +11,7 @@ public class DoubleDecker extends Bus {
      * @param passengerCapacity int
      * @param comfort           String
      */
-    DoubleDecker(int passengerCapacity, String comfort) {
-        super(passengerCapacity, comfort, "international", "large");
+    DoubleDecker(int busNumber, int passengerCapacity, String comfort) {
+        super(busNumber, passengerCapacity, comfort, "international", "large");
     }
 }
