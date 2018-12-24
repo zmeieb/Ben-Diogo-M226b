@@ -1,4 +1,4 @@
-package Flughafenplaner.Model;
+package flughafenplaner.Model;
 
 public class Flugzeugprinter {
 }

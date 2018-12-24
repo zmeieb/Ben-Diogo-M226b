@@ -1,4 +1,4 @@
-package Flughafenplaner;
+package flughafenplaner;
 
 public class Passagierflugzeug extends Flugzeug {
 

@@ -92,9 +92,9 @@ public class BusTerminal {
         int busNr;
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Destination:");
+        System.out.print("Destination: ");
         String destination = scanner.nextLine();
-        System.out.print("Departure:");
+        System.out.print("Departure: ");
         String departureTime = scanner.nextLine();
         System.out.print("Arrival: ");
         String arrivalTime = scanner.nextLine();

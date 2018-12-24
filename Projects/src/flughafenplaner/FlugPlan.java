@@ -1,4 +1,4 @@
-package Flughafenplaner;
+package flughafenplaner;
 
 public interface FlugPlan {
 
