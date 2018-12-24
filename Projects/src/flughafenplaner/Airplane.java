@@ -1,15 +1,17 @@
 package flughafenplaner;
 
-public class Flugzeug {
+public class Airplane {
 
     private String flugzeugName;
     private String modell;
     private String hersteller;
+    private String airline;
 
-    public Flugzeug(String flugzeugName, String modell, String hersteller){
+    public Airplane(String flugzeugName, String modell, String hersteller, String airline){
         this.flugzeugName = flugzeugName;
         this.modell = modell;
         this.hersteller = hersteller;
+        this.airline = airline;
     }
 
 
