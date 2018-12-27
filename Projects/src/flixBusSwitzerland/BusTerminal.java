@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class BusTerminal {
     private String terminalName;
+    private String location;
     private List<Platform> platforms;
     private List<Travel> travels;
     private List<Bus> buses;
@@ -21,7 +22,10 @@ public class BusTerminal {
     BusTerminal(String terminalName) {
         this.terminalName = terminalName;
     }
-
+    BusTerminal(String terminalName, String location){
+        this.terminalName = terminalName;
+        this.location = location;
+    }
     //Getters
 
     /**

@@ -9,7 +9,10 @@ package flixBusSwitzerland;
 import java.util.*;
 
 public class Main {
-    static boolean stop = true;
+
+    private static String location = "Zürich";
+    private static String name = "Bus Bahnhof Zürich-West";
+    private static boolean stop = true;
 
     public static void main(String[] args) {
         BusTerminal terminal = createBusTerminal("Bus Terminal Zürich");
@@ -51,6 +54,17 @@ public class Main {
     private static BusTerminal createBusTerminal(String name) {
         BusTerminal busTerminal = new BusTerminal(name);
         return busTerminal;
+    }
+
+
+    private static BusTerminal createBusTerminal(String name, String location){
+        BusTerminal busTerminal = new BusTerminal(name, location);
+
+        return busTerminal;
+    }
+
+    private static BusTerminal createBusTerminal() {
+        return createBusTerminal(name, location);
     }
 
     private static List<Platform> createPlatforms() {
