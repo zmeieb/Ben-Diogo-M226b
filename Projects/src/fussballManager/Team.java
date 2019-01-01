@@ -1,15 +1,19 @@
 package fussballManager;
 
+import java.util.List;
+
 public class Team {
 
-
-    Team(String name, String liga){
-        this.name = name;
-        this.liga = liga;
-    }
-
     private String name;
-    private String liga;
+    private String league;
+    private List<Player> players;
+    private CoTrainer coTrainer;
+    private MainTrainer mainTrainer;
+
+    Team(String name, String league){
+        this.name = name;
+        this.league = league;
+    }
 
     public String getName() {
         return name;
@@ -19,11 +23,35 @@ public class Team {
         this.name = name;
     }
 
-    public String getLiga() {
-        return liga;
+    public String getLeague() {
+        return league;
     }
 
-    public void setLiga(String liga) {
-        this.liga = liga;
+    public void setLeague(String league) {
+        this.league = league;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public CoTrainer getCoTrainer() {
+        return coTrainer;
+    }
+
+    public void setCoTrainer(CoTrainer coTrainer) {
+        this.coTrainer = coTrainer;
+    }
+
+    public MainTrainer getMainTrainer() {
+        return mainTrainer;
+    }
+
+    public void setMainTrainer(MainTrainer mainTrainer) {
+        this.mainTrainer = mainTrainer;
     }
 }

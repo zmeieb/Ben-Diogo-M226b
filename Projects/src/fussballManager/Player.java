@@ -2,9 +2,20 @@ package fussballManager;
 
 public abstract class Player extends Person{
 
+    private int number;
+    private int defending;
+    private int passing;
+    private int shooting;
+    private int pace;
+    private int dribbling;
 
-    Player(String name, int age, Team team, int number, int defending, int passing, int shooting, int pace, int dribbling) {
-        super(name, age, team);
+    //only for improvised return from interface method addPlayer
+    Player(){
+        super();
+    }
+
+    Player(String name, int age, int number, int defending, int passing, int shooting, int pace, int dribbling) {
+        super(name, age);
         this.number = number;
         this.defending = defending;
         this.passing = passing;
@@ -12,13 +23,6 @@ public abstract class Player extends Person{
         this.pace = pace;
         this.dribbling = dribbling;
     }
-
-    private int number;
-    private int defending;
-    private int passing;
-    private int shooting;
-    private int pace;
-    private int dribbling;
 
     public int getNumber() {
         return number;

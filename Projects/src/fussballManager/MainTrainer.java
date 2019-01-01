@@ -1,13 +1,13 @@
 package fussballManager;
 
-public class MainTrainer extends Trainer {
-
-    MainTrainer(String name, int age, Team team, int trainExperience, int manageExperience) {
-        super(name, age, team, trainExperience);
-        this.manageExperience = manageExperience;
-    }
+public class MainTrainer extends Trainer implements Managable{
 
     private int manageExperience;
+
+    MainTrainer(String name, int age, int trainExperience, int manageExperience) {
+        super(name, age, trainExperience);
+        this.manageExperience = manageExperience;
+    }
 
     public int getManageExperience() {
         return manageExperience;
@@ -15,5 +15,13 @@ public class MainTrainer extends Trainer {
 
     public void setManageExperience(int manageExperience) {
         this.manageExperience = manageExperience;
+    }
+
+    public Player addPlayer(Player player, Team team){
+        //improvised return
+        return new Goalkeeper();
+    }
+    public void removePlayer(){
+
     }
 }
