@@ -1,5 +1,7 @@
 package fussballManager;
 
+import java.util.List;
+
 public class MainTrainer extends Trainer implements Managable{
 
     private int manageExperience;
@@ -21,7 +23,33 @@ public class MainTrainer extends Trainer implements Managable{
         //improvised return
         return new Goalkeeper();
     }
-    public void removePlayer(){
+    public void removePlayer(Player player, Team team){
+        List<Player> playerList = team.getPlayers();
+        playerList.remove(player);
+    }
+
+    @Override
+    public void trainDefense() {
+
+    }
+
+    @Override
+    public void trainPassing() {
+
+    }
+
+    @Override
+    public void trainShooting() {
+
+    }
+
+    @Override
+    public void trainPace() {
+
+    }
+
+    @Override
+    public void trainDribbling() {
 
     }
 }

@@ -17,19 +17,29 @@ public abstract class Trainer extends Person implements Trainable{
         this.trainExperience = trainExperience;
     }
 
-    public void trainDefense(){
-
+    public void trainDefense(Player player){
+        int stat = player.getDefending();
+        stat += 2;
+        player.setDefending(stat);
     }
-    public void trainPassing(){
-
+    public void trainPassing(Player player){
+        int stat = player.getPassing();
+        stat += 2;
+        player.setPassing(stat);
     }
-    public void trainShooting(){
-
+    public void trainShooting(Player player){
+        int stat = player.getShooting();
+        stat += 2;
+        player.setShooting(stat);
     }
-    public void trainPace(){
-
+    public void trainPace(Player player){
+        int stat = player.getPace();
+        stat += 2;
+        player.setPace(stat);
     }
-    public void trainDribbling(){
-
+    public void trainDribbling(Player player){
+        int stat = player.getDribbling();
+        stat += 2;
+        player.setDribbling(stat);
     }
 }
