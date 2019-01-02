@@ -2,10 +2,10 @@ package fussballManager;
 
 public class CoTrainer extends Trainer {
 
-    CoTrainer(String name, int age, int trainExperience, String rank) {
+    CoTrainer(String name, int age, int trainExperience) {
         super(name, age, trainExperience);
     }
-        //This is a Test Merge and digo is literally gay
+
     @Override
     public void trainDefense() {
 
