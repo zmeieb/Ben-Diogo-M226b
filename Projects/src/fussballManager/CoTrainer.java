@@ -5,7 +5,7 @@ public class CoTrainer extends Trainer {
     CoTrainer(String name, int age, int trainExperience, String rank) {
         super(name, age, trainExperience);
     }
-
+        //This is a Test Merge
     @Override
     public void trainDefense() {
 
