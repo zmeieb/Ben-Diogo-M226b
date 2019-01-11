@@ -9,11 +9,6 @@ public abstract class Player extends Person{
     private int pace;
     private int dribbling;
 
-    //only for improvised return from interface method addPlayer
-    Player(){
-        super();
-    }
-
     Player(String name, int age, int number, int defending, int passing, int shooting, int pace, int dribbling) {
         super(name, age);
         this.number = number;
@@ -70,5 +65,17 @@ public abstract class Player extends Person{
 
     public void setDribbling(int dribbling) {
         this.dribbling = dribbling;
+    }
+
+    @Override
+    public String toString() {
+        return "=============================\n" +
+                this.getName() + ", " + this.getAge() + " Jahre\n" +
+                "Player Number: " + this.getNumber() + "\n" +
+                "Shooting: " + this.getShooting() + "\tPassing: " + this.getPassing() + "\n" +
+                "Pace: " + this.getPace() + "\t\tDefending: " + this.getDefending() + "\n" +
+                "Dribbling: " + this.getDribbling() +
+                "\n============================="
+                ;
     }
 }
