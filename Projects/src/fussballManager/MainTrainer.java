@@ -19,10 +19,11 @@ public class MainTrainer extends Trainer implements Managable{
         this.manageExperience = manageExperience;
     }
 
+    /*
     public Player addPlayer(Player player, Team team){
-        //improvised return
-        return new Goalkeeper();
+
     }
+    */
     public void removePlayer(Player player, Team team){
         List<Player> playerList = team.getPlayers();
         playerList.remove(player);

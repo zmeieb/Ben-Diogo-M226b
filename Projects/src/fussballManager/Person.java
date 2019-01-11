@@ -5,10 +5,6 @@ public abstract class Person {
     private String name;
     private int age;
 
-    //only for improvised return from interface method addPlayer
-    Person(){
-
-    }
 
     Person(String name, int age) {
         this.name = name;

@@ -30,4 +30,13 @@ public class CoTrainer extends Trainer {
     public void trainDribbling() {
 
     }
+
+    @Override
+    public String toString() {
+        return "=============================\n" +
+                "Name: " + this.getName() + "\n" +
+                "Age: " + this.getAge() + "\n" +
+                "Train-Experience: " + this.getTrainExperience() + "\n" +
+                "=============================\n";
+    }
 }
