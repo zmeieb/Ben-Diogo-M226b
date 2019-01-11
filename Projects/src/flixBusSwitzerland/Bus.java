@@ -5,6 +5,9 @@
 
 package flixBusSwitzerland;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bus {
     private int busNumber;
     private int passengerCapacity;
@@ -60,6 +63,21 @@ public class Bus {
      */
     public String getSize() {
         return size;
+    }
+
+    public static List<Bus> createBuses() {
+        List<Bus> busList = new ArrayList<>();
+
+        SingleFloorBus singleFloorBus1 = new SingleFloorBus(1, 100, "1st Class");
+        SingleFloorBus singleFloorBus2 = new SingleFloorBus(2, 50, "Basic");
+        DoubleDecker doubleDecker1 = new DoubleDecker(3, 150, "1st Class");
+        DoubleDecker doubleDecker2 = new DoubleDecker(4, 75, "Basic");
+        busList.add(singleFloorBus1);
+        busList.add(singleFloorBus2);
+        busList.add(doubleDecker1);
+        busList.add(doubleDecker2);
+
+        return busList;
     }
 
     @Override

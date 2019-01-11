@@ -8,6 +8,8 @@ package flixBusSwitzerland;
 
 import java.util.*;
 
+import static flixBusSwitzerland.Travel.createTravels;
+
 public class Main {
 
     private static String location = "Zürich";
@@ -15,9 +17,9 @@ public class Main {
     private static boolean stop = true;
 
     public static void main(String[] args) {
-        BusTerminal terminal = createBusTerminal("Bus Terminal Zürich");
+        BusTerminal terminal = createBusTerminal();
         terminal.setPlatforms(createPlatforms());
-        terminal.setBuses(createBuses());
+        terminal.setBuses(Bus.createBuses());
         terminal.setTravels(createTravels(terminal));
         Scanner scanner = new Scanner(System.in);
 
@@ -50,21 +52,12 @@ public class Main {
         }
     }
 
-
-    private static BusTerminal createBusTerminal(String name) {
-        BusTerminal busTerminal = new BusTerminal(name);
-        return busTerminal;
-    }
-
-
-    private static BusTerminal createBusTerminal(String name, String location){
-        BusTerminal busTerminal = new BusTerminal(name, location);
-
-        return busTerminal;
+    private static BusTerminal createBusTerminalWithLocation() {
+        return BusTerminal.createBusTerminal(name, location);
     }
 
     private static BusTerminal createBusTerminal() {
-        return createBusTerminal(name, location);
+        return BusTerminal.createBusTerminal(name);
     }
 
     private static List<Platform> createPlatforms() {
@@ -89,33 +82,4 @@ public class Main {
         return platforms;
     }
 
-    private static List<Bus> createBuses() {
-        List<Bus> busList = new ArrayList<>();
-
-        SingleFloorBus singleFloorBus1 = new SingleFloorBus(1, 100, "1st Class");
-        SingleFloorBus singleFloorBus2 = new SingleFloorBus(2, 50, "Basic");
-        DoubleDecker doubleDecker1 = new DoubleDecker(3, 150, "1st Class");
-        DoubleDecker doubleDecker2 = new DoubleDecker(4, 75, "Basic");
-        busList.add(singleFloorBus1);
-        busList.add(singleFloorBus2);
-        busList.add(doubleDecker1);
-        busList.add(doubleDecker2);
-
-        return busList;
-    }
-
-    private static List<Travel> createTravels(BusTerminal terminal) {
-        List<Travel> travelList = new ArrayList<>();
-
-        Travel travel1 = new Travel("Genf", "12:00", "15:00", terminal.getPlatforms().get(0), terminal.getBuses().get(0));
-        Travel travel2 = new Travel("Basel", "5:30", "7:00", terminal.getPlatforms().get(1), terminal.getBuses().get(1));
-        Travel travel3 = new Travel("Crikvenica", "19:30", "7:30", terminal.getPlatforms().get(2), terminal.getBuses().get(2));
-        Travel travel4 = new Travel("Milan", "14:15", "18:45", terminal.getPlatforms().get(3), terminal.getBuses().get(3));
-        travelList.add(travel1);
-        travelList.add(travel2);
-        travelList.add(travel3);
-        travelList.add(travel4);
-
-        return travelList;
-    }
 }

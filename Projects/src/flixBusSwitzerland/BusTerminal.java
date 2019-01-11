@@ -22,11 +22,17 @@ public class BusTerminal {
     BusTerminal(String terminalName) {
         this.terminalName = terminalName;
     }
+
+
     BusTerminal(String terminalName, String location){
         this.terminalName = terminalName;
         this.location = location;
     }
     //Getters
+
+    public String getLocation() {
+        return location;
+    }
 
     /**
      * @return String
@@ -159,5 +165,16 @@ public class BusTerminal {
         if (this.travels.add(travel)) {
             System.out.println("Created new Trip succesfully");
         }
+    }
+
+    public static BusTerminal createBusTerminal(String name) {
+        BusTerminal busTerminal = new BusTerminal(name);
+        return busTerminal;
+    }
+
+
+    public static BusTerminal createBusTerminal(String name, String location){
+        BusTerminal busTerminal = new BusTerminal(name, location);
+        return busTerminal;
     }
 }
