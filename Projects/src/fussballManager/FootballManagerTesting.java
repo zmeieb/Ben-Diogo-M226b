@@ -4,17 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class FootballManagerTesting {
-    MainManagerSimulator main = new MainManagerSimulator();
-
-    @Test
-    public void showGoalkeepers() {
-        main.showGoalkeepers(main.generatePlayerBarcelona());
-    }
 
     @Test
     public void testGoalKeeperInitialization() {
         //Arrange
-        Goalkeeper goalkeeper = new Goalkeeper();
+        Player goalkeeper = new Goalkeeper("Torben", 25, 1, 77, 56, 66, 45, 88);
         goalkeeper.setName("Torben");
         goalkeeper.setNumber(1);
         goalkeeper.setDefending(77);
