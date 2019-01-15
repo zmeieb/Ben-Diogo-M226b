@@ -1,9 +1,15 @@
 package fussballManager;
 
 public interface Trainable {
-    public void trainDefense();
-    public void trainPassing();
-    public void trainShooting();
-    public void trainPace();
-    public void trainDribbling();
+    void trainDefending(Player player, int i);
+
+    void trainPassing(Player player, int i);
+
+    void trainShooting(Player player, int i);
+
+    void trainPace(Player player, int i);
+
+    void trainDribbling(Player player, int i);
+
+    void trainExperience();
 }

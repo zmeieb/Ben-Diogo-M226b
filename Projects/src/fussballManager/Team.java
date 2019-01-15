@@ -10,7 +10,7 @@ public class Team {
     private CoTrainer coTrainer;
     private MainTrainer mainTrainer;
 
-    Team(String name, String league){
+    Team(String name, String league) {
         this.name = name;
         this.league = league;
     }
@@ -25,10 +25,6 @@ public class Team {
 
     public String getLeague() {
         return league;
-    }
-
-    public void setLeague(String league) {
-        this.league = league;
     }
 
     public List<Player> getPlayers() {

@@ -1,6 +1,6 @@
 package fussballManager;
 
-public abstract class Player extends Person{
+public abstract class Player extends Person {
 
     private int number;
     private int defending;
@@ -21,10 +21,6 @@ public abstract class Player extends Person{
 
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public int getDefending() {

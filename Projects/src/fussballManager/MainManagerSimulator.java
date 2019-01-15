@@ -31,7 +31,11 @@ public class MainManagerSimulator {
             System.out.println("====================================");
             System.out.println("Welcome to the Football Manager 2019");
             System.out.println("====================================");
-            System.out.println("Chose your team!\n[1] " + barcelona.getName() + "\n[2] " + liverpool.getName() + "\n[x] End Program");
+            System.out.println(
+                    "Chose your team!\n[1] " +
+                            barcelona.getName() + " - " + barcelona.getLeague() + "\n[2] " +
+                            liverpool.getName() + " - " + liverpool.getLeague() + "\n[x] End Program"
+            );
             String teamSelection = scanner.nextLine();
             switch (teamSelection) {
                 case "1":
@@ -54,7 +58,7 @@ public class MainManagerSimulator {
         return new Team(name, league);
     }
 
-    public static List<Player> generatePlayerBarcelona() {
+    private static List<Player> generatePlayerBarcelona() {
         List<Player> playerList = new ArrayList<>();
 
         playerList.add(new Goalkeeper("Albert", 27, 1, 76, 78, 70, 68, 55));
@@ -71,7 +75,7 @@ public class MainManagerSimulator {
         return playerList;
     }
 
-    public static List<Player> generatePlayerLiverpool() {
+    private static List<Player> generatePlayerLiverpool() {
         List<Player> playerList = new ArrayList<>();
 
         playerList.add(new Goalkeeper("Jimmy", 35, 99, 46, 67, 63, 56, 49));
@@ -115,7 +119,7 @@ public class MainManagerSimulator {
                     enteringCoTrainer(team);
                     break;
                 case "3":
-                    enteringCoTrainer(team);
+                    enteringMainTrainer(team);
                     break;
                 case "b":
                     tryAgain = false;
@@ -185,6 +189,7 @@ public class MainManagerSimulator {
     private static void enteringCoTrainer(Team team) {
         boolean tryAgain = true;
         Scanner scanner = new Scanner(System.in);
+        Trainer coTrainer = team.getCoTrainer();
 
         while (tryAgain) {
             System.out.println("============ Co-Trainer ============");
@@ -198,7 +203,7 @@ public class MainManagerSimulator {
                     System.out.println(team.getCoTrainer().toString());
                     break;
                 case "2":
-                    getPlayerByNumber(team);
+                    coTrainer.train(coTrainer.getPlayerByNumber(team.getPlayers()));
                     break;
                 case "b":
                     tryAgain = false;
@@ -209,56 +214,35 @@ public class MainManagerSimulator {
         }
     }
 
-    private static Player getPlayerByNumber(Team team) {
-        Scanner scanner = new Scanner(System.in);
-        //showAllPlayers(team.getPlayers());
-        Player selectedPlayer = null;
-        System.out.println("Which Player do you want to train? Type his Player Number");
-        int playerNumber = Integer.valueOf(scanner.nextLine());
-        for (Player player : team.getPlayers()) {
-            if (player.getNumber() == playerNumber) ;
-            selectedPlayer = player;
-        }
-        return selectedPlayer;
-    }
-
-    private static void trainSelectedPlayer(Player player) {
-        Trainer trainer = null;
+    private static void enteringMainTrainer(Team team) {
         boolean tryAgain = true;
-        String response = null;
         Scanner scanner = new Scanner(System.in);
-        while (tryAgain) {
-            System.out.println("Which Attribute do you want to train?");
-            System.out.println("[1] Train defending (+2)");
-            System.out.println("[2] Train shooting (+2)");
-            System.out.println("[3] Train pace (+2)");
-            System.out.println("[4] Train passing (+2)");
-            System.out.println("[5] Train dribbling (+2)");
-            System.out.println("[b] Back");
-            response = scanner.nextLine();
-            if (response.equals("1") || response.equals("2") || response.equals("3") || response.equals("4") || response.equals("5") || response.equals("b")) {
-                tryAgain = false;
-            }
-        }
-        switch (response) {
-            case "1":
-                trainer.trainDefense(player);
-                break;
-            case "2":
-                trainer.trainShooting(player);
-                break;
-            case "3":
-                trainer.trainPace(player);
-                break;
-            case "4":
-                trainer.trainPassing(player);
-                break;
-            case "5":
-                trainer.trainDribbling(player);
-                break;
-            case "b":
+        Trainer mainTrainer = team.getMainTrainer();
 
-                break;
+        while (tryAgain) {
+            System.out.println("============ Main-Trainer ============");
+            System.out.println("[1] View Main-Trainer Info");
+            System.out.println("[2] Train Player");
+            System.out.println("[3] Manage Team");
+            System.out.println("[b] Back");
+            String response = scanner.nextLine();
+
+            switch (response) {
+                case "1":
+                    System.out.println(team.getMainTrainer().toString());
+                    break;
+                case "2":
+                    mainTrainer.train(mainTrainer.getPlayerByNumber(team.getPlayers()));
+                    break;
+                case "3":
+                    //mainTrainer.train(mainTrainer.getPlayerByNumber(team.getPlayers()));
+                    break;
+                case "b":
+                    tryAgain = false;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
