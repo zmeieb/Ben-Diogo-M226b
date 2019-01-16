@@ -63,11 +63,55 @@ public class MainTrainer extends Trainer implements Managable {
         }
     }
 
-    /*
-    public Player addPlayer(Player player, Team team){
+    @Override
+    public Player addPlayer(Team team) {
+        Scanner scanner = new Scanner(System.in);
+        String response = null;
+        boolean tryAgain = true;
+        while (tryAgain) {
+            System.out.println("Was für eine Position soll der Spieler sein? \n[1] Goalkeeper\n" +
+                    "[2] Defender\n[3] Midfielder\n[4] Striker \n[b] Back");
+            response = scanner.nextLine();
+            if (response.equals("1") || response.equals("2") || response.equals("3") || response.equals("4")) {
+                tryAgain = false;
+            } else if (response.equals("b")) {
+                tryAgain = false;
+            }
 
+        }
+        System.out.println("\nOkay lets start!\n");
+
+        System.out.println("Geben sie den Namen des neuen Spieler ein!");
+        String name = scanner.nextLine();
+        System.out.println("Geben sie das Alter des neuen Spieler ein!");
+        int alter = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die Nummer des neuen Spieler ein!");
+        int nummer = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die DefendingStats des neuen Spieler ein!");
+        int defendingStats = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die Passing-Stats des neuen Spieler ein!");
+        int passingStats = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die Shooting-Stats des neuen Spieler ein!");
+        int shootingStats = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die Sprint-Stats des neuen Spieler ein!");
+        int paceStats = Integer.getInteger(scanner.nextLine());
+        System.out.println("Geben sie die Dribbling-Stats des neuen Spieler ein!");
+        int dribblingStats = Integer.getInteger(scanner.nextLine());
+        switch (response) {
+            case "1":
+                return new Goalkeeper(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
+            case "2":
+                return new Defender(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
+            case "3":
+                return new Midfielder(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
+            case "4":
+                return new Striker(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
+            default:
+                return null;
+        }
     }
-    */
+
+
     public void removePlayer(Player player, Team team) {
         List<Player> playerList = team.getPlayers();
         playerList.remove(player);
