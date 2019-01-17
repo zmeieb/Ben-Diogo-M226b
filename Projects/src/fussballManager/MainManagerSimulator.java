@@ -235,10 +235,39 @@ public class MainManagerSimulator {
                     mainTrainer.train(mainTrainer.getPlayerByNumber(team.getPlayers()));
                     break;
                 case "3":
-                    //mainTrainer.train(mainTrainer.getPlayerByNumber(team.getPlayers()));
+                    manageTeam(team);
                     break;
                 case "b":
                     tryAgain = false;
+                    selectionInTeam(team);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private static void manageTeam(Team team) {
+        Scanner scanner = new Scanner(System.in);
+        boolean tryAgain = true;
+        MainTrainer mainTrainer = team.getMainTrainer();
+        while (tryAgain) {
+            System.out.println("============Manage Team============");
+            System.out.println("[1] Add Player");
+            System.out.println("[2] Remove Player");
+            System.out.println("[b] Back");
+            String response = scanner.nextLine();
+
+            switch (response) {
+                case "1":
+                    team.getPlayers().add(mainTrainer.addPlayer());
+                    break;
+                case "2":
+                    mainTrainer.removePlayer(team);
+                    break;
+                case "b":
+                    tryAgain = false;
+                    enteringMainTrainer(team);
                     break;
                 default:
                     break;

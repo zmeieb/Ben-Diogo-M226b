@@ -40,19 +40,19 @@ public class MainTrainer extends Trainer implements Managable {
 
             switch (response) {
                 case "1":
-                    this.trainShooting(player, 2);
+                    trainShooting(player, 2);
                     break;
                 case "2":
-                    this.trainPassing(player, 2);
+                    trainPassing(player, 2);
                     break;
                 case "3":
-                    this.trainPace(player, 2);
+                    trainPace(player, 2);
                     break;
                 case "4":
-                    this.trainDefending(player, 2);
+                    trainDefending(player, 2);
                     break;
                 case "5":
-                    this.trainDribbling(player, 2);
+                    trainDribbling(player, 2);
                     break;
                 case "b":
                     tryAgain = false;
@@ -64,7 +64,7 @@ public class MainTrainer extends Trainer implements Managable {
     }
 
     @Override
-    public Player addPlayer(Team team) {
+    public Player addPlayer() {
         Scanner scanner = new Scanner(System.in);
         String response = null;
         boolean tryAgain = true;
@@ -84,27 +84,31 @@ public class MainTrainer extends Trainer implements Managable {
         System.out.println("Geben sie den Namen des neuen Spieler ein!");
         String name = scanner.nextLine();
         System.out.println("Geben sie das Alter des neuen Spieler ein!");
-        int alter = Integer.getInteger(scanner.nextLine());
+        int alter = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die Nummer des neuen Spieler ein!");
-        int nummer = Integer.getInteger(scanner.nextLine());
+        int nummer = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die DefendingStats des neuen Spieler ein!");
-        int defendingStats = Integer.getInteger(scanner.nextLine());
+        int defendingStats = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die Passing-Stats des neuen Spieler ein!");
-        int passingStats = Integer.getInteger(scanner.nextLine());
+        int passingStats = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die Shooting-Stats des neuen Spieler ein!");
-        int shootingStats = Integer.getInteger(scanner.nextLine());
+        int shootingStats = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die Sprint-Stats des neuen Spieler ein!");
-        int paceStats = Integer.getInteger(scanner.nextLine());
+        int paceStats = Integer.valueOf(scanner.nextLine());
         System.out.println("Geben sie die Dribbling-Stats des neuen Spieler ein!");
-        int dribblingStats = Integer.getInteger(scanner.nextLine());
+        int dribblingStats = Integer.valueOf(scanner.nextLine());
         switch (response) {
             case "1":
+                System.out.println("Created new Goalkeeper! ");
                 return new Goalkeeper(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
-            case "2":
+                case "2":
+                System.out.println("Created new Defender! ");
                 return new Defender(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
             case "3":
+                System.out.println("Created new Midfielder! ");
                 return new Midfielder(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
             case "4":
+                System.out.println("Created new Striker! ");
                 return new Striker(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
             default:
                 return null;
@@ -112,18 +116,27 @@ public class MainTrainer extends Trainer implements Managable {
     }
 
 
-    public void removePlayer(Player player, Team team) {
+    @Override
+    public void removePlayer(Team team) {
+        Scanner scanner = new Scanner(System.in);
         List<Player> playerList = team.getPlayers();
-        playerList.remove(player);
+        System.out.println("Wie ist die Spielernummer des Spielers die entfernt werden soll?");
+        int number = Integer.valueOf(scanner.nextLine());
+        for (Player player : playerList) {
+            if (number == player.getNumber()) {
+                playerList.remove(player);
+                System.out.println("Spieler wurde erfolgreich vom Team entfernt! ");
+            }
+        }
     }
 
     @Override
     public String toString() {
         return "=============================\n" +
-                "Name: " + this.getName() + "\n" +
-                "Age: " + this.getAge() + "\n" +
-                "Train-Experience: " + this.getTrainExperience() + "\n" +
-                "Manage-Experience: " + this.getManageExperience() + "\n" +
+                "Name: " + getName() + "\n" +
+                "Age: " + getAge() + "\n" +
+                "Train-Experience: " + getTrainExperience() + "\n" +
+                "Manage-Experience: " + getManageExperience() + "\n" +
                 "=============================\n";
     }
 }

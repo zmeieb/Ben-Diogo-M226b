@@ -1,7 +1,7 @@
 package fussballManager;
 
 public interface Managable {
-    public Player addPlayer(Team team);
+    Player addPlayer();
 
-    public void removePlayer(Player player, Team team);
+    void removePlayer(Team team);
 }
