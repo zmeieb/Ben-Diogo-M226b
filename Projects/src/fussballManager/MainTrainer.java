@@ -101,7 +101,7 @@ public class MainTrainer extends Trainer implements Managable {
             case "1":
                 System.out.println("Created new Goalkeeper! ");
                 return new Goalkeeper(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
-                case "2":
+            case "2":
                 System.out.println("Created new Defender! ");
                 return new Defender(name, alter, nummer, defendingStats, passingStats, shootingStats, paceStats, dribblingStats);
             case "3":

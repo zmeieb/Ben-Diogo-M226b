@@ -239,7 +239,6 @@ public class MainManagerSimulator {
                     break;
                 case "b":
                     tryAgain = false;
-                    selectionInTeam(team);
                     break;
                 default:
                     break;
@@ -267,7 +266,6 @@ public class MainManagerSimulator {
                     break;
                 case "b":
                     tryAgain = false;
-                    enteringMainTrainer(team);
                     break;
                 default:
                     break;
