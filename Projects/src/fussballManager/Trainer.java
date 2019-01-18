@@ -12,6 +12,7 @@ public abstract class Trainer extends Person implements Trainable {
         this.trainExperience = trainExperience;
     }
 
+
     int getTrainExperience() {
         return trainExperience;
     }
@@ -70,19 +71,19 @@ public abstract class Trainer extends Person implements Trainable {
 
             switch (response) {
                 case "1":
-                    this.trainShooting(player, 1);
+                    trainShooting(player, 1);
                     break;
                 case "2":
-                    this.trainPassing(player, 1);
+                    trainPassing(player, 1);
                     break;
                 case "3":
-                    this.trainPace(player, 1);
+                    trainPace(player, 1);
                     break;
                 case "4":
-                    this.trainDefending(player, 1);
+                    trainDefending(player, 1);
                     break;
                 case "5":
-                    this.trainDribbling(player, 1);
+                    trainDribbling(player, 1);
                     break;
                 case "b":
                     tryAgain = false;
@@ -93,53 +94,86 @@ public abstract class Trainer extends Person implements Trainable {
         }
     }
 
+    @Override
     public void trainShooting(Player player, int i) {
         int stat = player.getShooting();
         stat += i;
         player.setShooting(stat);
-        this.trainExperience();
+        trainExperience();
     }
 
+    @Override
     public void trainPassing(Player player, int i) {
         int stat = player.getPassing();
         stat += i;
         player.setPassing(stat);
-        this.trainExperience();
+        trainExperience();
     }
 
+    @Override
     public void trainPace(Player player, int i) {
         int stat = player.getPace();
         stat += i;
         player.setPace(stat);
-        this.trainExperience();
+        trainExperience();
     }
 
+    @Override
     public void trainDefending(Player player, int i) {
         int stat = player.getDefending();
         stat += i;
         player.setDefending(stat);
-        this.trainExperience();
+        trainExperience();
     }
 
+    @Override
     public void trainDribbling(Player player, int i) {
         int stat = player.getDribbling();
         stat += i;
         player.setDribbling(stat);
-        this.trainExperience();
+        trainExperience();
     }
 
+    @Override
     public void trainExperience() {
-        int exp = this.getTrainExperience();
+        int exp = getTrainExperience();
         exp += 1;
-        this.setTrainExperience(exp);
+        setTrainExperience(exp);
     }
 
     @Override
     public String toString() {
         return "=============================\n" +
-                "Name: " + this.getName() + "\n" +
-                "Age: " + this.getAge() + "\n" +
-                "Train-Experience: " + this.getTrainExperience() + "\n" +
+                "Name: " + getName() + "\n" +
+                "Age: " + getAge() + "\n" +
+                "Train-Experience: " + getTrainExperience() + "\n" +
                 "=============================\n";
+    }
+
+    //Overloading
+    public Player getPlayerByNumber(List<Player> players, int number) {
+        Player selectedPlayer = null;
+
+        int notInt = 0;
+
+        while (notInt == 0) {
+            try {
+                int playerNumber = number;
+
+                for (Player player : players) {
+                    if (player.getNumber() == playerNumber) {
+                        selectedPlayer = player;
+                    }
+                }
+                if (selectedPlayer != null) {
+                    notInt++;
+                } else {
+                    System.out.println("Player does not exist! Try again!");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please give a valid Input!");
+            }
+        }
+        return selectedPlayer;
     }
 }
