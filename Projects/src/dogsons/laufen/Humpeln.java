@@ -1,6 +1,6 @@
 package dogsons.laufen;
 
-public class Humpeln implements LaufenVerhalten {
+public class Humpeln implements LaufVerhalten {
     @Override
     public void laufen() {
 

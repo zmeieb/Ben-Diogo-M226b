@@ -1,6 +1,6 @@
 package dogsons.laufen;
 
-public interface LaufenVerhalten {
+public interface LaufVerhalten {
 
     void laufen();
 }
