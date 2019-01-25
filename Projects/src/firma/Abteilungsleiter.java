@@ -29,7 +29,7 @@ public class Abteilungsleiter extends Mitarbeiter {
 
 
     private String abteilung;
-    private List<Mitarbeiter> mitarbeiterList = new ArrayList<Mitarbeiter>();
+    private List<Mitarbeiter> mitarbeiterList = new ArrayList<>();
 
 
     public String getAbteilung() {
