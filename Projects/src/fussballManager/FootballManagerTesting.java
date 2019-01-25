@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class FootballManagerTesting {
 
     @Test
@@ -53,6 +54,10 @@ public class FootballManagerTesting {
     }
 
     @Test
+    public void testThatShouldSucceed() {
+    }
+
+    @Test
     public void testDefenderInitialization() {
         Defender defender = new Defender("Gilbert", 23, 77, 98, 65, 54, 88, 48);
         Assert.assertEquals("Gilbert", defender.getName());
@@ -94,6 +99,18 @@ public class FootballManagerTesting {
         Goalkeeper goalkeeper = new Goalkeeper("Torben", 25, 1, 77, 56, 66, 45, 88);
 
         Assert.assertSame(player.getDefending(), goalkeeper.getDefending());
+    }
+
+    @Test
+    public void testCreatePlayer() {
+        Team team = createMockTeam();
+        Player player = team.getMainTrainer().addPlayer();
+
+        Assert.assertEquals(1, player.getShooting());
+        Assert.assertEquals(2, player.getDefending());
+        Assert.assertEquals(3, player.getDribbling());
+        Assert.assertEquals(4, player.getPace());
+        Assert.assertEquals(5, player.getPassing());
     }
 
     private Team createMockTeam() {
