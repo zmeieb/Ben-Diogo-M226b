@@ -54,10 +54,6 @@ public class FootballManagerTesting {
     }
 
     @Test
-    public void testThatShouldSucceed() {
-    }
-
-    @Test
     public void testDefenderInitialization() {
         Defender defender = new Defender("Gilbert", 23, 77, 98, 65, 54, 88, 48);
         Assert.assertEquals("Gilbert", defender.getName());
@@ -68,6 +64,10 @@ public class FootballManagerTesting {
         Assert.assertEquals(88, defender.getPace());
         Assert.assertEquals(65, defender.getPassing());
         Assert.assertEquals(48, defender.getDribbling());
+    }
+
+    @Test
+    public void testThatShouldSucceed() {
     }
 
     @Test
@@ -101,17 +101,6 @@ public class FootballManagerTesting {
         Assert.assertSame(player.getDefending(), goalkeeper.getDefending());
     }
 
-    @Test
-    public void testCreatePlayer() {
-        Team team = createMockTeam();
-        Player player = team.getMainTrainer().addPlayer();
-
-        Assert.assertEquals(1, player.getShooting());
-        Assert.assertEquals(2, player.getDefending());
-        Assert.assertEquals(3, player.getDribbling());
-        Assert.assertEquals(4, player.getPace());
-        Assert.assertEquals(5, player.getPassing());
-    }
 
     private Team createMockTeam() {
         Team team = new Team("Real Madrid", "Primera Division");
