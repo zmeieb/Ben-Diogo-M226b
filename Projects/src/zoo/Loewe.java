@@ -6,7 +6,7 @@ import zoo.TrinkVerhalten.SchnellTrinken;
 import zoo.TrinkVerhalten.TrinkVerhalten;
 
 /**
- * Löwe.java
+ * Loewe.java
  * <p>
  * Änderungen:
  * -
