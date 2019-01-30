@@ -4,7 +4,7 @@ package zoo.TrinkVerhalten;
  * SchnellTrinken.java
  * <p>
  * Änderungen:
- * -
+ * Ben Meier - 30.01.2019 - Ausgabe von trinken() geändert, Javadocs geändert
  * <p>
  * Klasse für das schnelle Trinkverhalten der Tier
  *

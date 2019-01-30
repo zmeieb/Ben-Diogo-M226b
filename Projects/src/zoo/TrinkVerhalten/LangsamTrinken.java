@@ -4,7 +4,7 @@ package zoo.TrinkVerhalten;
  * LangsamTrinken.java
  * <p>
  * Änderungen:
- * -
+ * Ben Meier - 30.01.2019 - Ausgabe von trinken() geändert, Javadocs geändert
  * <p>
  * Klasse für das langsame Trinkverhalten der Tier
  *
@@ -17,6 +17,6 @@ public class LangsamTrinken implements TrinkVerhalten {
      */
     @Override
     public void trinken() {
-        System.out.println("Laaaangsaaaaam trinkeeeen...");
+        System.out.println("Laaaangsaaaaam schluckeeeen...");
     }
 }
