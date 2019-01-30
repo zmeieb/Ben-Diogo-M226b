@@ -11,6 +11,7 @@ import java.util.List;
  * <p>
  * Änderungen:
  * Diogo Caraça - 30.01.2019 - Code formatiert und print() hinzugefügt
+ * Ben Meier - 30.01.2019 - System outs verschönert
  * <p>
  * Atomarer Zoowärter
  *
@@ -120,7 +121,7 @@ public class Kaefigleiter extends Zoowaerter {
      * Gibt den Käfigleiter aus und seine untergestellten Zoowärter aus
      */
     public void print() {
-        System.out.println("Name: " + this.getName() + "Alter: " + this.getAlter());
+        System.out.println("Name: " + this.getName() + "\nAlter: " + this.getAlter());
         for (Zoowaerter zoowaerter : this.getListZoowaerter()) {
             System.out.print("\t\t");
             zoowaerter.print();

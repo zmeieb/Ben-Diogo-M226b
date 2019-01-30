@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * <p>
  * Änderungen:
  * Diogo Caraça - 30.01.2019 - Zoo unabhängig von den Käfigen gemacht (zuerst Zoo ohne Käfige erstellbar), nötige Getters erstellt
+ * Ben Meier - 30.01.2019 - Getter für Zoowärter Liste
  * <p>
  * Zoo mit Käfigen, Tieren und Zoowärtern
  *
@@ -59,6 +60,15 @@ public class Zoo {
      */
     public ArrayList<Kaefig> getKäfige() {
         return käfige;
+    }
+
+    /**
+     * Holt die Liste der Zoowärter des Zoo
+     *
+     * @return Liste der Zoowärter des Zoo
+     */
+    public ArrayList<Zoowaerter> getZoowärter() {
+        return zoowärter;
     }
 
     /**

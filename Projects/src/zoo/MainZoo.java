@@ -42,7 +42,7 @@ public class MainZoo {
                     watchKäfige();
                     break;
                 case "2":
-
+                    watchZoowärterTeams();
                     break;
                 case "x":
                     tryAgain = false;
@@ -264,5 +264,39 @@ public class MainZoo {
         zoo.setZoowärter(createZoowaerter((AffenKaefig) zoo.getKäfige().get(0), (ElefantenKaefig) zoo.getKäfige().get(1), (LoewenKaefig) zoo.getKäfige().get(2)));
 
         return zoo;
+    }
+
+    private static void watchZoowärterTeams() {
+        Scanner scanner = new Scanner(System.in);
+        Zoo zoo = createZoo();
+        boolean tryAgain = true;
+        System.out.println("================= Zoowärter =================");
+        while (tryAgain) {
+            System.out.println("\n Welches Team der folgenden Käfigleiter möchten Sie anschauen?");
+            int counter = 1;
+            for (Zoowaerter zoowaerter : zoo.getZoowärter()) {
+                if (zoowaerter instanceof Kaefigleiter) {
+                    System.out.println("[" + counter + "] " + zoowaerter.getName());
+                    counter++;
+                }
+            }
+            System.out.println("[b] Back");
+            String eingabe = scanner.nextLine();
+
+            switch (eingabe) {
+                case "1":
+                    zoo.getZoowärter().get(0).print();
+
+                case "2":
+                    zoo.getZoowärter().get(1).print();
+                    break;
+                case "3":
+                    zoo.getZoowärter().get(2).print();
+                    break;
+                case "b":
+                    tryAgain = false;
+                    break;
+            }
+        }
     }
 }
