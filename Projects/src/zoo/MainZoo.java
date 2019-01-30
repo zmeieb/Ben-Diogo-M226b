@@ -3,6 +3,8 @@ package zoo;
 import zoo.Angestellte.AtomarerZoowaerter;
 import zoo.Angestellte.Kaefigleiter;
 import zoo.Angestellte.Zoowaerter;
+import zoo.FressVerhalten.LangsamFressen;
+import zoo.FressVerhalten.SchnellFressen;
 import zoo.Käfig.AffenKaefig;
 import zoo.Käfig.ElefantenKaefig;
 import zoo.Käfig.Kaefig;
@@ -10,32 +12,18 @@ import zoo.Käfig.LoewenKaefig;
 import zoo.Tier.Affe;
 import zoo.Tier.Elefant;
 import zoo.Tier.Loewe;
+import zoo.Tier.Tier;
+import zoo.TrinkVerhalten.LangsamTrinken;
+import zoo.TrinkVerhalten.SchnellTrinken;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainZoo {
 
+    private static Zoo zoo = createZoo();
+
     public static void main(String[] args) {
-        Zoo zoo = new Zoo("Zoo Zürich");
-        zoo.setKäfige(createKaefige());
-        ArrayList<AffenKaefig> affenKaefige = new ArrayList<>();
-        ArrayList<ElefantenKaefig> elefantenKaefige = new ArrayList<>();
-        ArrayList<LoewenKaefig> loewenKaefige = new ArrayList<>();
-
-        for (Kaefig kaefig : zoo.getKäfige()) {
-            if (kaefig instanceof AffenKaefig) {
-                affenKaefige.add((AffenKaefig) kaefig);
-            } else if (kaefig instanceof ElefantenKaefig) {
-                elefantenKaefige.add((ElefantenKaefig) kaefig);
-            } else if (kaefig instanceof LoewenKaefig) {
-                loewenKaefige.add((LoewenKaefig) kaefig);
-            }
-        }
-
-        zoo.setZoowärter(createZoowaerter(affenKaefige.get(0), elefantenKaefige.get(0), loewenKaefige.get(0)));
-
-
         Scanner scanner = new Scanner(System.in);
         boolean tryAgain = true;
         System.out.println("=====================================================");
@@ -45,8 +33,7 @@ public class MainZoo {
         while (tryAgain) {
             System.out.println("\n In welche Rolle möchten Sie sich versetzen? \n" +
                     "[1] Käfig besichtigen \n" +
-                    "[2] Tier unter die Lupe nehmen \n" +
-                    "[3] Zoowärter teams anschauen \n" +
+                    "[2] Zoowärter teams anschauen \n" +
                     "[x] Exit");
             String eingabe = scanner.nextLine();
 
@@ -55,9 +42,6 @@ public class MainZoo {
                     watchKäfige();
                     break;
                 case "2":
-
-                    break;
-                case "3":
 
                     break;
                 case "x":
@@ -70,9 +54,129 @@ public class MainZoo {
     }
 
     private static void watchKäfige() {
+        Scanner scanner = new Scanner(System.in);
+        boolean tryAgain = true;
         System.out.println("================= Käfige =================");
-        System.out.println("Welcher der folgenden Käfige möchten Sie besichtigen? ");
-        System.out.println();
+        while (tryAgain) {
+            System.out.println("\n Welcher der folgenden Käfige möchten Sie besichtigen? \n" +
+                    "[1] Affenkäfig \n" +
+                    "[2] Elefantenkäfig \n" +
+                    "[3] Löwenkäfig \n" +
+                    "[b] Zurück");
+            String eingabe = scanner.nextLine();
+
+            switch (eingabe) {
+                case "1":
+                    int i = 1;
+                    for (Tier affe : zoo.getKäfige().get(0).getTierList()) {
+                        System.out.println(affe.toString() + i);
+                        i++;
+                    }
+                    makeAnimalDo(0);
+                    break;
+                case "2":
+                    int u = 1;
+                    for (Tier elefant : zoo.getKäfige().get(1).getTierList()) {
+                        System.out.println(elefant.toString() + u);
+                        u++;
+                    }
+                    makeAnimalDo(1);
+                    break;
+                case "3":
+                    int z = 1;
+                    for (Tier loewe : zoo.getKäfige().get(2).getTierList()) {
+                        System.out.println(loewe.toString() + z);
+                        z++;
+                    }
+                    makeAnimalDo(2);
+                    break;
+                case "b":
+                    tryAgain = false;
+                    break;
+            }
+        }
+    }
+
+
+    private static void makeAnimalDo(int i) {
+        Scanner scanner = new Scanner(System.in);
+        boolean tryAgain = true;
+        String action;
+        while (tryAgain) {
+            System.out.println("Wähle ein Tier aus (Zahl des Tieres eingeben).");
+            String zahl = scanner.nextLine();
+
+            switch (zahl) {
+                case "1":
+                    System.out.println("Was soll es machen?");
+                    System.out.println("[1] schnell fressen");
+                    System.out.println("[2] langsam fressen");
+                    System.out.println("[3] schnell trinken");
+                    System.out.println("[4] langsam trinken");
+                    action = scanner.nextLine();
+
+                    switch (action) {
+                        case "1":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "1");
+                            zoo.getKäfige().get(i).getTierList().get(0).setFressVerhalten(new SchnellFressen());
+                            zoo.getKäfige().get(i).getTierList().get(0).fressen();
+                            break;
+                        case "2":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "1");
+                            zoo.getKäfige().get(i).getTierList().get(0).setFressVerhalten(new LangsamFressen());
+                            zoo.getKäfige().get(i).getTierList().get(0).fressen();
+                            break;
+                        case "3":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "1");
+                            zoo.getKäfige().get(i).getTierList().get(0).setTrinkVerhalten(new SchnellTrinken());
+                            zoo.getKäfige().get(i).getTierList().get(0).trinken();
+                            break;
+                        case "4":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "1");
+                            zoo.getKäfige().get(i).getTierList().get(0).setTrinkVerhalten(new LangsamTrinken());
+                            zoo.getKäfige().get(i).getTierList().get(0).trinken();
+                            break;
+                    }
+                    tryAgain = false;
+                    break;
+                case "2":
+                    System.out.println("Was soll es machen?");
+                    System.out.println("[1] schnell fressen");
+                    System.out.println("[2] langsam fressen");
+                    System.out.println("[3] schnell trinken");
+                    System.out.println("[4] langsam trinken");
+                    action = scanner.nextLine();
+
+                    switch (action) {
+
+                    }
+
+                    switch (action) {
+                        case "1":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "2");
+                            zoo.getKäfige().get(i).getTierList().get(1).setFressVerhalten(new SchnellFressen());
+                            zoo.getKäfige().get(i).getTierList().get(1).fressen();
+                            break;
+                        case "2":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "2");
+                            zoo.getKäfige().get(i).getTierList().get(1).setFressVerhalten(new LangsamFressen());
+                            zoo.getKäfige().get(i).getTierList().get(1).fressen();
+                            break;
+                        case "3":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "2");
+                            zoo.getKäfige().get(i).getTierList().get(1).setTrinkVerhalten(new SchnellTrinken());
+                            zoo.getKäfige().get(i).getTierList().get(1).trinken();
+                            break;
+                        case "4":
+                            System.out.println(zoo.getKäfige().get(i).getTierList().get(0).toString() + "2");
+                            zoo.getKäfige().get(i).getTierList().get(1).setTrinkVerhalten(new LangsamTrinken());
+                            zoo.getKäfige().get(i).getTierList().get(1).trinken();
+                            break;
+                    }
+                    tryAgain = false;
+                    break;
+            }
+        }
     }
 
     private static void createArrange() {
@@ -152,5 +256,13 @@ public class MainZoo {
         allZoowaerter.add(leiter3);
 
         return allZoowaerter;
+    }
+
+    private static Zoo createZoo() {
+        Zoo zoo = new Zoo("Zoo Zürich");
+        zoo.setKäfige(createKaefige());
+        zoo.setZoowärter(createZoowaerter((AffenKaefig) zoo.getKäfige().get(0), (ElefantenKaefig) zoo.getKäfige().get(1), (LoewenKaefig) zoo.getKäfige().get(2)));
+
+        return zoo;
     }
 }

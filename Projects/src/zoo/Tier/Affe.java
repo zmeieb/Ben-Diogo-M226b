@@ -9,7 +9,7 @@ import zoo.TrinkVerhalten.TrinkVerhalten;
  * Affe.java
  * <p>
  * Änderungen:
- * -
+ * Diogo Caraça - 30.01.2019 - toString() überschrieben
  * <p>
  * Ein Affe, der essen und trinken kann.
  *
@@ -25,4 +25,14 @@ public class Affe extends Tier {
      * Der Affe trinkt schnell.
      */
     private TrinkVerhalten trinkVerhalten = new SchnellTrinken();
+
+    /**
+     * Gibt den Affen aus
+     *
+     * @return Affe
+     */
+    @Override
+    public String toString() {
+        return "Affe ";
+    }
 }
