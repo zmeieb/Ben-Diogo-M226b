@@ -10,7 +10,7 @@ import java.util.List;
 public class FootballManagerTesting {
 
     @Test
-    public void testGoalKeeperInitializationWithS() {
+    public void testGoalKeeperInitialization() {
         //Arrange
         Player goalkeeper = new Goalkeeper("Torben", 25, 1, 77, 56, 66, 45, 88);
 
@@ -66,9 +66,6 @@ public class FootballManagerTesting {
         Assert.assertEquals(48, defender.getDribbling());
     }
 
-    @Test
-    public void testThatShouldSucceed() {
-    }
 
     @Test
     public void testTeamInitialization() {
