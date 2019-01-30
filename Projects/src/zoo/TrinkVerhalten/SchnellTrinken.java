@@ -17,6 +17,6 @@ public class SchnellTrinken implements TrinkVerhalten {
      */
     @Override
     public void trinken() {
-        System.out.println("SCHNELL TRINKEN!!");
+        System.out.println("SCHNELL SCHLUCKEN!!");
     }
 }

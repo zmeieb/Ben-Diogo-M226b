@@ -1,5 +1,6 @@
 package zoo;
 
+import zoo.Angestellte.Zoowaerter;
 import zoo.Käfig.Kaefig;
 
 import java.util.List;
