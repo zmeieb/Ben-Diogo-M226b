@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import zoo.Angestellte.AtomarerZoowaerter;
 import zoo.Angestellte.Kaefigleiter;
+import zoo.Käfig.AffenKaefig;
 
 public class ZooTesting {
 
@@ -38,7 +39,7 @@ public class ZooTesting {
 
 
     private Kaefigleiter mockKäfigleiterWith3Mitarbeiter() {
-        Kaefigleiter kaefigleiter = new Kaefigleiter("Albert", 53);
+        Kaefigleiter kaefigleiter = new Kaefigleiter("Albert", 53, new AffenKaefig("affen1"));
         AtomarerZoowaerter atomarerZoowaerter1 = new AtomarerZoowaerter("Luca", 25);
         AtomarerZoowaerter atomarerZoowaerter2 = new AtomarerZoowaerter("Tim", 12);
         AtomarerZoowaerter atomarerZoowaerter3 = new AtomarerZoowaerter("Dirhat", 28);

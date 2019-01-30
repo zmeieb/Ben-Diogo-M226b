@@ -3,13 +3,13 @@ package zoo;
 import zoo.Angestellte.Zoowaerter;
 import zoo.Käfig.Kaefig;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Zoo.java
  * <p>
  * Änderungen:
- * -
+ * Diogo Caraça - 30.01.2019 - Zoo unabhängig von den Käfigen gemacht (zuerst Zoo ohne Käfige erstellbar), nötige Getters erstellt
  * <p>
  * Zoo mit Käfigen, Tieren und Zoowärtern
  *
@@ -26,23 +26,39 @@ public class Zoo {
     /**
      * Liste der Käfige
      */
-    private List<Kaefig> käfige;
+    private ArrayList<Kaefig> käfige;
 
     /**
      * Liste der Zoowärter
      */
-    private List<Zoowaerter> zoowärter;
+    private ArrayList<Zoowaerter> zoowärter;
 
 
     /**
-     * Setzt den Namen und die Käfige des Zoos fest beim initialisieren
+     * Setzt den Namen des Zoos fest beim initialisieren
      *
-     * @param name   Name des Zoos
-     * @param käfige Liste der Käfige
+     * @param name Name des Zoos
      */
-    public Zoo(String name, List<Kaefig> käfige) {
+    public Zoo(String name) {
         this.name = name;
-        this.käfige = käfige;
+    }
+
+    /**
+     * Holt den Namen des Zoos
+     *
+     * @return Name des Zoos
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * Holt die Liste der Käfige im Zoo
+     *
+     * @return Liste der Käfige im Zoo
+     */
+    public ArrayList<Kaefig> getKäfige() {
+        return käfige;
     }
 
     /**
@@ -50,7 +66,16 @@ public class Zoo {
      *
      * @param zoowärter Liste der Zoowärter
      */
-    public void setZoowärter(List<Zoowaerter> zoowärter) {
+    public void setZoowärter(ArrayList<Zoowaerter> zoowärter) {
         this.zoowärter = zoowärter;
+    }
+
+    /**
+     * Setzt die Liste der Käfige im Zoo fest
+     *
+     * @param käfige Liste der Käfige
+     */
+    public void setKäfige(ArrayList<Kaefig> käfige) {
+        this.käfige = käfige;
     }
 }
