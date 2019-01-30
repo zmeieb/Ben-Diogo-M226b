@@ -1,23 +1,23 @@
-package zoo;
+package zoo.Käfig;
 
 /**
- * LoewenKaefig.java
+ * ElefantenKaefig.java
  * <p>
  * Änderungen:
  * -
  * <p>
- * Käfig der Löwen
+ * Käfig der Elefanten
  *
  * @author Diogo Caraça
  * @since 29.01.2019
  */
-public class LoewenKaefig extends Kaefig {
+public class ElefantenKaefig extends Kaefig {
     /**
      * Setzt den Namen des Käfiges fest beim initialisieren
      *
      * @param name Name des Käfiges
      */
-    public LoewenKaefig(String name) {
+    public ElefantenKaefig(String name) {
         super(name);
     }
 }

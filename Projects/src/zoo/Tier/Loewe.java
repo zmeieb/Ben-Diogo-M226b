@@ -1,4 +1,4 @@
-package zoo;
+package zoo.Tier;
 
 import zoo.FressVerhalten.FressVerhalten;
 import zoo.FressVerhalten.SchnellFressen;

@@ -1,4 +1,4 @@
-package zoo;
+package zoo.Käfig;
 
 /**
  * AffenKaefig.java

@@ -1,4 +1,6 @@
-package zoo;
+package zoo.Käfig;
+
+import zoo.Tier.Tier;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public abstract class Kaefig {
      */
     private String name;
     /**
-     * Liste der Tiere im Käfig
+     * Liste der Tier im Käfig
      */
     private List<? extends Tier> tierList;
 
@@ -44,18 +46,18 @@ public abstract class Kaefig {
     }
 
     /**
-     * Holt die Liste der Tiere im Käfig
+     * Holt die Liste der Tier im Käfig
      *
-     * @return Liste der Tiere im Käfig
+     * @return Liste der Tier im Käfig
      */
     public List<? extends Tier> getTierList() {
         return tierList;
     }
 
     /**
-     * Setzt die Liste der erwünschten Tiere im Käfig fest
+     * Setzt die Liste der erwünschten Tier im Käfig fest
      *
-     * @param tierList Liste der Tiere
+     * @param tierList Liste der Tier
      */
     public void setTierList(List<? extends Tier> tierList) {
         this.tierList = tierList;

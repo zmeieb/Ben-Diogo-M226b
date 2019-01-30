@@ -1,5 +1,7 @@
 package zoo;
 
+import zoo.Käfig.Kaefig;
+
 import java.util.List;
 
 /**

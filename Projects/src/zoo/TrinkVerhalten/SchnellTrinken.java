@@ -6,7 +6,7 @@ package zoo.TrinkVerhalten;
  * Änderungen:
  * -
  * <p>
- * Klasse für das schnelle Trinkverhalten der Tiere
+ * Klasse für das schnelle Trinkverhalten der Tier
  *
  * @author Diogo Caraça
  * @since 29.01.2019
