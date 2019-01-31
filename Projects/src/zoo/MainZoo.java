@@ -285,13 +285,39 @@ public class MainZoo {
 
             switch (eingabe) {
                 case "1":
-                    zoo.getZoowärter().get(0).print();
-
+                    kaefigleiterToDo(zoo.getZoowärter().get(0));
+                    break;
                 case "2":
-                    zoo.getZoowärter().get(1).print();
+                    kaefigleiterToDo(zoo.getZoowärter().get(1));
                     break;
                 case "3":
-                    zoo.getZoowärter().get(2).print();
+                    kaefigleiterToDo(zoo.getZoowärter().get(2));
+                    break;
+                case "b":
+                    tryAgain = false;
+                    break;
+            }
+
+
+        }
+    }
+
+    private static void kaefigleiterToDo(Zoowaerter zoowaerter) {
+        Scanner scanner = new Scanner(System.in);
+        boolean tryAgain = true;
+        while (tryAgain) {
+            System.out.println("Was möchten sie von " + zoowaerter.getName() + " wissen?");
+            System.out.println("[1] Anzahl Zoowärter von " + zoowaerter.getName() + "\n" +
+                    "[2] " + zoowaerter.getName() + "'s Team gelistet \n" +
+                    "[b] back");
+            String eingabe = scanner.nextLine();
+
+            switch (eingabe) {
+                case "1":
+                    System.out.println(zoowaerter.getName() + "'s Team hat " + zoowaerter.getZoowärterAnzahl() + "Zoowärter");
+                    break;
+                case "2":
+                    zoowaerter.print();
                     break;
                 case "b":
                     tryAgain = false;
