@@ -63,11 +63,11 @@ public class ZooTesting {
         Assert.assertEquals(17, atomarerZoowaerter.getAlter());
     }
 
-    @Test
-    public void checkLöwenInitialization() {
+    @Test(expected = AssertionError.class)
+    public void negativCheckLöwenInitialization() {
         Loewe loewe = new Loewe();
         loewe.setFressVerhalten(new LangsamFressen());
-        Assert.assertEquals("Löwe ", loewe.toString());
+        Assert.assertTrue("Bär ".equals(loewe.toString()));
     }
 
     private Kaefigleiter mockKäfigleiterWith3Mitarbeiter() {
